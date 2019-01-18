@@ -17,6 +17,13 @@ const getNestArr = (arr, parent='') => {
     return newArr;
 }
 
+
+/**
+ * @desc 时间格式化
+ * @param {string} time 
+ * @param {string} format
+ * @returns {string} 
+ */
 const formatDate = (time, format) => {
     let date = new Date(time);
     let o = {

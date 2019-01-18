@@ -71,8 +71,6 @@ class ArticleEditForm extends Component {
     }
 
     initData() {
-        // console.log(this.state.editor);
-        // console.log(this.state.editor.getMarkdown());
         let id = this.props.match.params.id;
         if (id !== '0') {
             http.get(`/api/articles/detail/${id}`)
@@ -109,8 +107,6 @@ class ArticleEditForm extends Component {
 
     componentDidMount() {
         this.initData();
-    }
-    componentWillUnmount() {
     }
     render() {
         return (

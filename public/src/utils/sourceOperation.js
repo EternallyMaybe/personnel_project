@@ -30,7 +30,7 @@ const isInclude = (src) => {
     let isJs = /\.js$/.test(src);
     let els = document.getElementsByTagName(isJs ? 'script' : 'link');
     for (var i = 0, total = els.length; i < total; i++) {
-        if (els[i][isJs ? 'src' : 'href'].indexOf(src) !== -1) {
+        if (els[i][isJs ? 'src' : 'href'].indexOf(src.replace(/\.\.\//g, '')) !== -1) {
             return true;
         }
     }
