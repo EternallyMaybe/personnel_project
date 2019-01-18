@@ -1,0 +1,33 @@
+{
+  "name": "personnel_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EternallyMaybe/personnel-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EternallyMaybe/personnel-project/issues"
+  },
+  "homepage": "https://github.com/EternallyMaybe/personnel-project#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-mysql-session": "^0.0.2",
+    "koa-router": "^7.4.0",
+    "koa-session-minimal": "^3.0.4",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.4",
+    "mysql": "^2.16.0",
+    "validator": "^10.9.0"
+  }
+}
