@@ -78,7 +78,6 @@ async function getDataByPage(ctx) {
 		result.message = constant.FAIL_GET_DATA;
 	}
 
-	ctx.response.status = result.code;
     ctx.body = result;
 }
 
@@ -101,7 +100,6 @@ async function findDataById(ctx) {
 		result.message = constant.FAIL_GET_DATA;
 	}
 	
-	ctx.response.status = result.code;
     ctx.body = result;
 }
 
@@ -110,8 +108,14 @@ async function findDataById(ctx) {
  */
 async function deleteById(ctx) {
 	let id = ctx.params.id;
+	let parent = ctx.query.parent;
 	let resultData = await codeTableService.deleteDataById(id);
+	let updateLeafResult = await codeTableService.updateLeaf(parent);
 
+	if (updateLeafResult.code && updateLeafResult.code !== 200) {
+		ctx.body = updateLeafResult;
+		return;
+	}
 	if (resultData) {
 		ctx.response.status = 204;
 	} else {
@@ -143,7 +147,6 @@ async function updateData(ctx) {
 		result.message = constant.FAIL_UPDATE;
 	}
 	
-	ctx.response.status = result.code;
     ctx.body = result;
 }
 

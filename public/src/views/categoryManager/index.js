@@ -11,7 +11,7 @@ class CategoryManager extends Component {
     state = {
         dataSource: [],
         count: 0,
-        pageSize: 1,
+        pageSize: 8,
         columns: [
             {
                 title: '列表',
@@ -38,7 +38,7 @@ class CategoryManager extends Component {
                         <Divider type="vertical" />
                         <a href="javascript:;" onClick={this.openModal.bind(this, rowData, 2)}>编辑</a>
                         <Divider type="vertical" />
-                        <a href="javascript:;" onClick={this.delete.bind(this, rowData.codeLetter)}>删除</a>
+                        <a href="javascript:;" onClick={this.delete.bind(this, rowData)}>删除</a>
                     </div>
                 )
             }
@@ -70,17 +70,16 @@ class CategoryManager extends Component {
         }
     }
 
-    delete(codeLetter) {
+    delete(rowData) {
         let self = this;
 
         confirm({
             title: '该节点删除后同时会删除其子节点，您确定要删除此条记录吗？',
             onOk() {
-                http.delete(`/api/categories/delete/${codeLetter}`)
+                http.delete(`/api/categories/delete/${rowData.codeLetter}?parent=${rowData.parent}`)
                 .then((res) => {
                     message.success('删除成功');
                     self.getDataByPage(1, self.state.pageSize);
-                    self.getCount();
                 })
                 .catch((err) => {
                     message.error('删除失败');
@@ -110,7 +109,7 @@ class CategoryManager extends Component {
     }
     
     componentDidMount() {
-        this.getDataByPage(1, 1)
+        this.getDataByPage(1, this.state.pageSize)
     }
 
     render() {
@@ -130,7 +129,7 @@ class CategoryManager extends Component {
                     pagination={{
                         total: this.state.count,
                         defaultPageSize: this.state.pageSize,
-                        pageSizeOptions: ['1', '2', '3'],
+                        pageSizeOptions: ['8', '16', '24'],
                         showQuickJumper: true,
                         showSizeChanger: true,
                         onShowSizeChange(current, pageSize) {

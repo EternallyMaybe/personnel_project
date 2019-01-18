@@ -11,7 +11,7 @@ class ArticleManager extends Component {
     state = {
         dataSource: [],
         count: 0,
-        pageSize: 1,
+        pageSize: 8,
         columns: [
             {
                 title: '标题',
@@ -132,7 +132,7 @@ class ArticleManager extends Component {
     }
 
     componentDidMount() {
-        this.getDataByPage(1, 1)
+        this.getDataByPage(1, this.state.pageSize)
     }
 
     render() {
@@ -158,7 +158,7 @@ class ArticleManager extends Component {
                     pagination={{
                         total: this.state.count,
                         defaultPageSize: this.state.pageSize,
-                        pageSizeOptions: ['1', '2', '3'],
+                        pageSizeOptions: ['8', '16', '24'],
                         showQuickJumper: true,
                         showSizeChanger: true,
                         onShowSizeChange(current, pageSize) {

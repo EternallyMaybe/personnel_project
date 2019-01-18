@@ -70,6 +70,16 @@ async function updateData(values, id) {
     return resultData;
 }
 
+/**
+ * 根据id进行数据更新isLeaf字段
+ * @param {number} id
+ * @returns {object}
+ */
+async function updateLeaf(parent) {
+    let resultData = await codeTableModel.updateLeaf(parent);
+    return resultData;
+}
+
 
 module.exports = {
     create,
@@ -78,5 +88,6 @@ module.exports = {
     getTotal,
     findDataById,
     deleteDataById,
-    updateData
+    updateData,
+    updateLeaf
 }

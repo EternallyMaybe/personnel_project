@@ -86,6 +86,17 @@ async function updateData(values, id) {
     return result;
 }
 
+async function updateLeaf(parent) {
+    let sql = `update code_table set isLeaf=1 
+            where codeLetter='${parent}' 
+            and not exists(
+                select * from (select id from code_table where parent='${parent}') as t
+            );`;
+    let result = dbUtils.query(sql); 
+    
+    return result;
+}
+
 module.exports = {
     create,
     getExistOne,
@@ -93,5 +104,6 @@ module.exports = {
     getTotal,
     findDataById,
     deleteDataById,
-    updateData
+    updateData,
+    updateLeaf
 }

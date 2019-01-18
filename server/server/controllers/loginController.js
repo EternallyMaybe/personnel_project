@@ -31,7 +31,6 @@ async function login(ctx) {
         result.message = constant.FAIL_USER_NO_EXIST;
 	}
 
-	// ctx.response.status = result.code;
 	ctx.body = result;
 }
 
@@ -78,7 +77,6 @@ async function signUp(ctx) {
 		result.message = constant.ERROR_SYS;
 	}
 
-	ctx.response.status = result.code;
 	ctx.body = result;
 }
 
@@ -116,7 +114,6 @@ async function getLoginUserInfo(ctx) {
 		result.message = constant.FAIL_USER_NO_LOGIN;
 	}
 
-	ctx.response.status = result.code;
     ctx.body = result;
 }
 

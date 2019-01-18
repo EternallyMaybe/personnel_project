@@ -74,7 +74,6 @@ async function getDataByPage(ctx) {
 		result.message = constant.FAIL_GET_DATA;
 	}
 
-	ctx.response.status = result.code;
     ctx.body = result;
 }
 
@@ -97,7 +96,6 @@ async function findDataById(ctx) {
 		result.message = constant.FAIL_GET_DATA;
 	}
 	
-	ctx.response.status = result.code;
     ctx.body = result;
 }
 
@@ -139,7 +137,6 @@ async function updateData(ctx) {
 		result.message = constant.FAIL_UPDATE;
 	}
 	
-	ctx.response.status = result.code;
     ctx.body = result;
 }
 
