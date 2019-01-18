@@ -27,7 +27,6 @@ const createAllTables = async () => {
             }
         }
     }
-
     console.log('sql脚本执行结束！');
     console.log('请按ctrl + c键退出！');
 }

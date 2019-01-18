@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const pool = mysql.createPool({
-    host    : '127.0.0.1',
+    host    : 'localhost',
     user    : 'root',
     password: '111111',
-    database: 'koa_demo'
+    database: 'koa'
 });
 
 let query = function(sql, values) {

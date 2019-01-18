@@ -8,7 +8,11 @@ $ mysql -u root -p
 $ create database personnel_manager;
 $ use personnel_manager;
 ```
-所有表结构见personnel_manager.sql
+### 创建表
+```
+$ cd server
+$ node init/index.js
+```
 ### 运行项目
 ```
 public
